@@ -18,7 +18,7 @@ const ConfirmPassword = () => {
     const passwordInputRef = useRef(null);
 
     const startConfirmingPassword = () => {
-        axios.get(route('password.confirmation')).then(response => {
+        axios.get(route('password.confirmation')).then((response) =>  {
             if (response.data.confirmed) {
                 //emit('confirmed');
             } else {

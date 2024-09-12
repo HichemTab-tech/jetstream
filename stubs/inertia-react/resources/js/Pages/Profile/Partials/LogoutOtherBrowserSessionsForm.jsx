@@ -8,7 +8,7 @@ import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
-import Slot from "@/Components/Slot.jsx";
+import Slot from '@/Components/Slot.jsx';
 
 const LogoutOtherBrowserSessionsForm = ({ sessions }) => {
     const [confirmingLogout, setConfirmingLogout] = useState(false);

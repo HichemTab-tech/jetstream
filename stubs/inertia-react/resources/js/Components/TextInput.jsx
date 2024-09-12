@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef } from 'react';
 
-export default forwardRef(function TextInput({ modelValue, autoFocus, className = "", ...props }, ref) {
+export default forwardRef(function TextInput({ modelValue, autoFocus, className = '', ...props }, ref) {
     const inputRef = ref ? ref : useRef();
 
     useEffect(() => {

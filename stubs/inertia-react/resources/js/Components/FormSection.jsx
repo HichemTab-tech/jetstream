@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionTitle from './SectionTitle';
-import Slot from "@/Components/Slot.jsx";
+import Slot from '@/Components/Slot.jsx';
 
 const FormSection = ({ title, description, children, onSubmit }) => {
     const slots = React.Children.toArray(children);
@@ -14,9 +14,16 @@ const FormSection = ({ title, description, children, onSubmit }) => {
             </SectionTitle>
 
             <div className="mt-5 md:mt-0 md:col-span-2">
-                <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
+                <form
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        onSubmit();
+                    }}
+                >
                     <div
-                        className={`px-4 py-5 bg-white sm:p-6 shadow ${hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'}`}
+                        className={`px-4 py-5 bg-white sm:p-6 shadow ${
+                            hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md'
+                        }`}
                     >
                         <div className="grid grid-cols-6 gap-6">
                             {slots.find((child) => child.props.slot === 'form')}

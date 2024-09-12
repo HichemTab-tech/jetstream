@@ -1,10 +1,12 @@
+// noinspection JSUnresolvedReference
+
 import React from 'react';
 
 const SectionTitle = ({ children }) => {
     const slots = React.Children.toArray(children);
-    const title = slots.find(child => child.props.slot === 'title');
-    const description = slots.find(child => child.props.slot === 'description');
-    const aside = slots.find(child => child.props.slot === 'aside');
+    const title = slots.find((child) => child.props.slot === 'title');
+    const description = slots.find((child) => child.props.slot === 'description');
+    const aside = slots.find((child) => child.props.slot === 'aside');
 
     return (
         <div className="md:col-span-1 flex justify-between">

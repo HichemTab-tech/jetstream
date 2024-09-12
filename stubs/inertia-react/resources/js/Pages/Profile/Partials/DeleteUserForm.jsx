@@ -8,7 +8,7 @@ import DialogModal from '@/Components/DialogModal'; // Assume this is a React mo
 import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
-import Slot from "@/Components/Slot.jsx";
+import Slot from '@/Components/Slot.jsx';
 
 const DeleteUserForm = () => {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);

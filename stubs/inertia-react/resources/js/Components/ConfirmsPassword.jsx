@@ -12,7 +12,7 @@ const ConfirmsPassword = ({
     onConfirmed,
     renderButton = null,
     show = false,
-    children
+    children,
 }) => {
     const [confirmingPassword, setConfirmingPassword] = useState(false);
     const [form, setForm] = useState({
@@ -23,7 +23,7 @@ const ConfirmsPassword = ({
     const passwordInputRef = useRef(null);
 
     const startConfirmingPassword = () => {
-        axios.get(route('password.confirmation')).then(response => {
+        axios.get(route('password.confirmation')).then((response) =>  {
             if (response.data.confirmed) {
                 onConfirmed();
             } else {
@@ -34,16 +34,17 @@ const ConfirmsPassword = ({
     };
 
     const confirmPassword = () => {
-        setForm(prev => ({ ...prev, processing: true }));
+        setForm((prev) => ({ ...prev, processing: true }));
 
-        axios.post(route('password.confirm'), { password: form.password })
+        axios
+            .post(route('password.confirm'), { password: form.password })
             .then(() => {
-                setForm(prev => ({ ...prev, processing: false }));
+                setForm((prev) => ({ ...prev, processing: false }));
                 closeModal();
                 onConfirmed();
             })
             .catch(error => {
-                setForm(prev => ({
+                setForm((prev) => ({
                     ...prev,
                     processing: false,
                     error: error.response.data.errors.password[0],
@@ -63,9 +64,7 @@ const ConfirmsPassword = ({
 
     return (
         <span>
-            <span>
-                {show && renderButton && renderButton(startConfirmingPassword)}
-            </span>
+            <span>{show && renderButton && renderButton(startConfirmingPassword)}</span>
 
             <DialogModal show={confirmingPassword} onClose={closeModal}>
                 <h3 slot="title">{title}</h3>
@@ -89,15 +88,9 @@ const ConfirmsPassword = ({
                 </div>
 
                 <div slot="footer">
-                    <SecondaryButton onClick={closeModal}>
-                        Cancel
-                    </SecondaryButton>
+                    <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
 
-                    <PrimaryButton
-                        className="ml-3"
-                        disabled={form.processing}
-                        onClick={confirmPassword}
-                    >
+                    <PrimaryButton className="ml-3" disabled={form.processing} onClick={confirmPassword}>
                         {button}
                     </PrimaryButton>
                 </div>

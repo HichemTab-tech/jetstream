@@ -14,7 +14,7 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import SectionBorder from '@/Components/SectionBorder';
 import TextInput from '@/Components/TextInput';
-import Slot from "@/Components/Slot.jsx";
+import Slot from '@/Components/Slot.jsx';
 
 const TeamMemberManager = ({ team, availableRoles, userPermissions }) => {
     const [currentlyManagingRole, setCurrentlyManagingRole] = useState(false);

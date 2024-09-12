@@ -4,7 +4,7 @@ import ActionSection from '@/Components/ActionSection';
 import ConfirmationModal from '@/Components/ConfirmationModal';
 import DangerButton from '@/Components/DangerButton';
 import SecondaryButton from '@/Components/SecondaryButton';
-import Slot from "@/Components/Slot.jsx";
+import Slot from '@/Components/Slot.jsx';
 
 const DeleteTeamForm = ({ team }) => {
     const [confirmingTeamDeletion, setConfirmingTeamDeletion] = useState(false);

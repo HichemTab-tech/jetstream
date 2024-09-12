@@ -339,7 +339,7 @@ EOF;
     }
 
     /**
-     * Install the Inertia common files
+     * Install the Inertia common files.
      *
      * @return bool
      */
@@ -371,15 +371,15 @@ EOF;
         // Install NPM packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                    '@inertiajs/vue3' => '^1.0.14',
-                    '@tailwindcss/forms' => '^0.5.7',
-                    '@tailwindcss/typography' => '^0.5.10',
-                    '@vitejs/plugin-vue' => '^5.0.0',
-                    'autoprefixer' => '^10.4.16',
-                    'postcss' => '^8.4.32',
-                    'tailwindcss' => '^3.4.0',
-                    'vue' => '^3.3.13',
-                ] + $packages;
+                '@inertiajs/vue3' => '^1.0.14',
+                '@tailwindcss/forms' => '^0.5.7',
+                '@tailwindcss/typography' => '^0.5.10',
+                '@vitejs/plugin-vue' => '^5.0.0',
+                'autoprefixer' => '^10.4.16',
+                'postcss' => '^8.4.32',
+                'tailwindcss' => '^3.4.0',
+                'vue' => '^3.3.13',
+            ] + $packages;
         });
 
         // Tailwind Configuration...
@@ -522,20 +522,20 @@ EOF;
         // Install NPM packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                    '@headlessui/react' => '^2.0.0',
-                    '@inertiajs/react' => '^1.0.0',
-                    '@tailwindcss/forms' => '^0.5.7',
-                    '@tailwindcss/typography' => '^0.5.10',
-                    '@vitejs/plugin-react' => '^4.3.1',
-                    'autoprefixer' => '^10.4.16',
-                    'postcss' => '^8.4.32',
-                    'tailwindcss' => '^3.4.0',
-                    'react' => '^18.2.0',
-                    'react-dom' => '^18.2.0',
-                    'react-helmet' => '^6.1.0',
-                    'react-transition-group' => '^4.4.5',
-                    'ziggy-js' => '^1.0.5'
-                ] + $packages;
+                '@headlessui/react' => '^2.0.0',
+                '@inertiajs/react' => '^1.0.0',
+                '@tailwindcss/forms' => '^0.5.7',
+                '@tailwindcss/typography' => '^0.5.10',
+                '@vitejs/plugin-react' => '^4.3.1',
+                'autoprefixer' => '^10.4.16',
+                'postcss' => '^8.4.32',
+                'tailwindcss' => '^3.4.0',
+                'react' => '^18.2.0',
+                'react-dom' => '^18.2.0',
+                'react-helmet' => '^6.1.0',
+                'react-transition-group' => '^4.4.5',
+                'ziggy-js' => '^1.0.5'
+            ] + $packages;
         });
 
         // Tailwind Configuration...
@@ -618,8 +618,7 @@ EOF;
         copy(__DIR__.'/../../stubs/resources/css/app.css', resource_path('css/app.css'));
         if ($this->option('ssr')) {
             copy(__DIR__ . '/../../stubs/inertia-react/resources/js/app-ssr.jsx', resource_path('js/app.jsx'));
-        }
-        else {
+        } else {
             copy(__DIR__ . '/../../stubs/inertia-react/resources/js/app.jsx', resource_path('js/app.jsx'));
         }
 
@@ -784,8 +783,8 @@ EOF;
     {
         $this->updateNodePackages(function ($packages) {
             return [
-                    '@vue/server-renderer' => '^3.3.13',
-                ] + $packages;
+                '@vue/server-renderer' => '^3.3.13',
+            ] + $packages;
         });
 
         copy(__DIR__.'/../../stubs/inertia-vue/resources/js/ssr.js', resource_path('js/ssr.js'));
