@@ -119,20 +119,28 @@ class InstallCommand extends Command implements PromptsForMissingInput
                 $this->removeComposerDevPackages(['phpunit/phpunit']);
             }
 
-            if (! $this->requireComposerDevPackages(['pestphp/pest:^3.0', 'pestphp/pest-plugin-laravel:^3.0'])) {
+            print_r("hi 0");
+
+            if (! $this->requireComposerDevPackages(['pestphp/pest', 'pestphp/pest-plugin-laravel'])) {
                 return 1;
             }
+
+            print_r("hi 1");
 
             copy($stubs.'/Pest.php', base_path('tests/Pest.php'));
             copy($stubs.'/ExampleTest.php', base_path('tests/Feature/ExampleTest.php'));
             copy($stubs.'/ExampleUnitTest.php', base_path('tests/Unit/ExampleTest.php'));
         }
 
+        print_r("hi 2");
+
         copy($stubs.'/AuthenticationTest.php', base_path('tests/Feature/AuthenticationTest.php'));
         copy($stubs.'/EmailVerificationTest.php', base_path('tests/Feature/EmailVerificationTest.php'));
         copy($stubs.'/PasswordConfirmationTest.php', base_path('tests/Feature/PasswordConfirmationTest.php'));
         copy($stubs.'/PasswordResetTest.php', base_path('tests/Feature/PasswordResetTest.php'));
         copy($stubs.'/RegistrationTest.php', base_path('tests/Feature/RegistrationTest.php'));
+
+        print_r("hi 3");
 
         return 1;
     }
