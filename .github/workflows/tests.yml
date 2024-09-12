@@ -48,7 +48,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        stack: [inertia, livewire]
+        stack: [inertia-react, inertia-vue, livewire]
         laravel: [11]
 
     name: Test Stubs - Laravel ${{ matrix.laravel }} - ${{ matrix.stack }}
