@@ -119,7 +119,7 @@ class InstallCommand extends Command implements PromptsForMissingInput
                 $this->removeComposerDevPackages(['phpunit/phpunit']);
             }
 
-            if (! $this->requireComposerDevPackages(['pestphp/pest', 'pestphp/pest-plugin-laravel'])) {
+            if (! $this->requireComposerDevPackages(['pestphp/pest:^3.0', 'pestphp/pest-plugin-laravel:^3.0'])) {
                 return 1;
             }
 
