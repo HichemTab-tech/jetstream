@@ -16,5 +16,5 @@ export default function ApplicationLogo() {
                 fill="#6875F5"
             />
         </svg>
-    )
+    );
 }

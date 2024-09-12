@@ -16,8 +16,10 @@ const PrivacyPolicy = ({ policy }) => {
                             <AuthenticationCardLogo />
                         </div>
 
-                        <div className="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose"
-                             dangerouslySetInnerHTML={{ __html: policy }} />
+                        <div
+                            className="w-full sm:max-w-2xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded-lg prose"
+                            dangerouslySetInnerHTML={{ __html: policy }}
+                        />
                     </div>
                 </div>
             </div>

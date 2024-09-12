@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useForm, usePage} from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import ActionMessage from '@/Components/ActionMessage';
 import ActionSection from '@/Components/ActionSection';
 import Checkbox from '@/Components/Checkbox';
@@ -94,10 +94,14 @@ const ApiTokenManager = ({ tokens, availablePermissions, defaultPermissions }) =
                                         <Checkbox
                                             checked={createApiTokenForm.data.permissions.includes(permission)}
                                             onChange={(e) =>
-                                                createApiTokenForm.setData('permissions',
+                                                createApiTokenForm.setData(
+                                                    'permissions',
                                                     e.target.checked
                                                         ? [...createApiTokenForm.data.permissions, permission]
-                                                        : createApiTokenForm.data.permissions.filter(p => p !== permission))
+                                                        : createApiTokenForm.data.permissions.filter(
+                                                              (p) => p !== permission
+                                                          )
+                                                )
                                             }
                                             value={permission}
                                         />
@@ -109,10 +113,10 @@ const ApiTokenManager = ({ tokens, availablePermissions, defaultPermissions }) =
                     )}
                 </Slot>
                 <div slot="actions">
-                    <ActionMessage on={createApiTokenForm.recentlySuccessful} className="me-3">Created.</ActionMessage>
-                    <PrimaryButton disabled={createApiTokenForm.processing}>
-                        Create
-                    </PrimaryButton>
+                    <ActionMessage on={createApiTokenForm.recentlySuccessful} className="me-3">
+                        Created.
+                    </ActionMessage>
+                    <PrimaryButton disabled={createApiTokenForm.processing}>Create</PrimaryButton>
                 </div>
             </FormSection>
 
@@ -129,7 +133,9 @@ const ApiTokenManager = ({ tokens, availablePermissions, defaultPermissions }) =
                                 <div key={token.id} className="flex items-center justify-between">
                                     <div className="break-all">{token.name}</div>
                                     <div className="flex items-center ml-2">
-                                        {token.last_used_ago && <div className="text-sm text-gray-400">Last used {token.last_used_ago}</div>}
+                                        {token.last_used_ago && (
+                                            <div className="text-sm text-gray-400">Last used {token.last_used_ago}</div>
+                                        )}
                                         {availablePermissions.length > 0 && (
                                             <button
                                                 className="cursor-pointer ml-6 text-sm text-gray-400 underline"
@@ -158,13 +164,11 @@ const ApiTokenManager = ({ tokens, availablePermissions, defaultPermissions }) =
                 <Slot slot="content">
                     <div>
                         Please copy your new API token. For your security, it won't be shown again.
-
                         {jetstream.flash.token && (
                             <div className="mt-4 bg-gray-100 dark:bg-gray-900 px-4 py-2 rounded font-mono text-sm text-gray-500 break-all">
                                 {jetstream.flash.token}
                             </div>
                         )}
-
                     </div>
                 </Slot>
                 <Slot slot="footer">
@@ -181,10 +185,12 @@ const ApiTokenManager = ({ tokens, availablePermissions, defaultPermissions }) =
                                 <Checkbox
                                     checked={updateApiTokenForm.data.permissions.includes(permission)}
                                     onChange={(e) =>
-                                        updateApiTokenForm.setData('permissions',
+                                        updateApiTokenForm.setData(
+                                            'permissions',
                                             e.target.checked
                                                 ? [...updateApiTokenForm.data.permissions, permission]
-                                                : updateApiTokenForm.data.permissions.filter(p => p !== permission))
+                                                : updateApiTokenForm.data.permissions.filter((p) => p !== permission)
+                                        )
                                     }
                                     value={permission}
                                 />

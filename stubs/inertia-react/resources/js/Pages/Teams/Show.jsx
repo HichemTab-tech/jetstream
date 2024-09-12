@@ -9,11 +9,7 @@ const TeamSettings = ({ team, availableRoles, permissions }) => {
     return (
         <AppLayout
             title="Team Settings"
-            header={(
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Team Settings
-                </h2>
-            )}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Team Settings</h2>}
         >
             <div>
                 <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">

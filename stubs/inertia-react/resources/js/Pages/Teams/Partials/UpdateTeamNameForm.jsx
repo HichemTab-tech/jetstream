@@ -26,16 +26,16 @@ const UpdateTeamNameForm = ({ team, permissions }) => {
     };
 
     return (
-        <FormSection
-            onSubmit={updateTeamName}
-            title="Team Name"
-            description="The team's name and owner information."
-        >
+        <FormSection onSubmit={updateTeamName} title="Team Name" description="The team's name and owner information.">
             <FormSection.Slot slot="form">
                 <div className="col-span-6">
                     <InputLabel>Team Owner</InputLabel>
                     <div className="flex items-center mt-2">
-                        <img className="w-12 h-12 rounded-full object-cover" src={team.owner.profile_photo_url} alt={team.owner.name} />
+                        <img
+                            className="w-12 h-12 rounded-full object-cover"
+                            src={team.owner.profile_photo_url}
+                            alt={team.owner.name}
+                        />
                         <div className="ms-4 leading-tight">
                             <div className="text-gray-900">{team.owner.name}</div>
                             <div className="text-gray-700 text-sm">{team.owner.email}</div>

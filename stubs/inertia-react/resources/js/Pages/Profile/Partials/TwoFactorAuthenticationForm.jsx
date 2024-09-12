@@ -1,7 +1,7 @@
 // noinspection JSUnresolvedReference,JSCheckFunctionSignatures
 
 import React, { useState } from 'react';
-import {useForm, usePage} from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import ActionSection from '@/Components/ActionSection';
 import ConfirmsPassword from '@/Components/ConfirmsPassword';
 import DangerButton from '@/Components/DangerButton';
@@ -21,7 +21,13 @@ const TwoFactorAuthenticationForm = () => {
     const [setupKey, setSetupKey] = useState(null);
     const [recoveryCodes, setRecoveryCodes] = useState([]);
 
-    const { data, setData, errors, post, delete: destroy } = useForm({
+    const {
+        data,
+        setData,
+        errors,
+        post,
+        delete: destroy,
+    } = useForm({
         code: '',
     });
 
@@ -56,7 +62,7 @@ const TwoFactorAuthenticationForm = () => {
             onFinish: () => {
                 setEnabling(false);
                 setConfirming(confirmsTwoFactorAuthentication);
-            }
+            },
         });
     };
 
@@ -69,14 +75,12 @@ const TwoFactorAuthenticationForm = () => {
             },
             onError: () => {
                 setData('code', ''); // Clear the input
-            }
+            },
         });
     };
 
     const regenerateRecoveryCodes = () => {
-        axios
-            .post(route('two-factor.recovery-codes'))
-            .then(() => fetchRecoveryCodes());
+        axios.post(route('two-factor.recovery-codes')).then(() => fetchRecoveryCodes());
     };
 
     const disableTwoFactorAuthentication = () => {
@@ -85,31 +89,26 @@ const TwoFactorAuthenticationForm = () => {
             onSuccess: () => {
                 setDisabling(false);
                 setConfirming(false);
-            }
+            },
         });
     };
 
     // noinspection JSValidateTypes
     return (
-        <ActionSection title="Two Factor Authentication"
-                       description="Add additional security to your account using two factor authentication.">
-
-            {twoFactorEnabled && ! confirming && (
-                <h3 className="text-lg font-medium text-gray-900">
-                    You have enabled two factor authentication.
-                </h3>
+        <ActionSection
+            title="Two Factor Authentication"
+            description="Add additional security to your account using two factor authentication."
+        >
+            {twoFactorEnabled && !confirming && (
+                <h3 className="text-lg font-medium text-gray-900">You have enabled two factor authentication.</h3>
             )}
 
             {twoFactorEnabled && confirming && (
-                <h3 className="text-lg font-medium text-gray-900">
-                    Finish enabling two factor authentication.
-                </h3>
+                <h3 className="text-lg font-medium text-gray-900">Finish enabling two factor authentication.</h3>
             )}
 
             {!twoFactorEnabled && (
-                <h3 className="text-lg font-medium text-gray-900">
-                    You have not enabled two factor authentication.
-                </h3>
+                <h3 className="text-lg font-medium text-gray-900">You have not enabled two factor authentication.</h3>
             )}
 
             <div className="mt-3 max-w-xl text-sm text-gray-600">
@@ -127,21 +126,21 @@ const TwoFactorAuthenticationForm = () => {
                                 {confirming ? (
                                     <p className="font-semibold">
                                         To finish enabling two factor authentication, scan the following QR code using
-                                        your
-                                        phone's
-                                        authenticator application or enter the setup key and provide the generated OTP
-                                        code.
+                                        your phone's authenticator application or enter the setup key and provide the
+                                        generated OTP code.
                                     </p>
                                 ) : (
                                     <p>
                                         Two factor authentication is now enabled. Scan the following QR code using your
-                                        phone's
-                                        authenticator application or enter the setup key.
+                                        phone's authenticator application or enter the setup key.
                                     </p>
                                 )}
                             </div>
 
-                            <div className="mt-4 p-2 inline-block bg-white" dangerouslySetInnerHTML={{ __html: qrCode }}/>
+                            <div
+                                className="mt-4 p-2 inline-block bg-white"
+                                dangerouslySetInnerHTML={{ __html: qrCode }}
+                            />
 
                             {setupKey && (
                                 <div className="mt-4 max-w-xl text-sm text-gray-600">
@@ -153,7 +152,7 @@ const TwoFactorAuthenticationForm = () => {
 
                             {confirming && (
                                 <div className="mt-4">
-                                    <InputLabel htmlFor="code" value="Code"/>
+                                    <InputLabel htmlFor="code" value="Code" />
                                     <TextInput
                                         name="code"
                                         value={data.code}
@@ -162,36 +161,30 @@ const TwoFactorAuthenticationForm = () => {
                                         autoFocus
                                         autoComplete="one-time-code"
                                     />
-                                    <InputError message={errors.code}/>
+                                    <InputError message={errors.code} />
                                 </div>
                             )}
                         </div>
                     )}
 
-
-                    {recoveryCodes.length > 0 && ! confirming && (
+                    {recoveryCodes.length > 0 && !confirming && (
                         <div>
                             <div className="mt-4 max-w-xl text-sm text-gray-600">
                                 <p className="font-semibold">
                                     Store these recovery codes in a secure password manager. They can be used to recover
-                                    access
-                                    to your account if your two factor authentication device is lost.
+                                    access to your account if your two factor authentication device is lost.
                                 </p>
                             </div>
 
-                            <div
-                                className="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
+                            <div className="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
                                 {recoveryCodes.map((code) => (
-                                    <div key={code}>
-                                        {code}
-                                    </div>
+                                    <div key={code}>{code}</div>
                                 ))}
                             </div>
                         </div>
                     )}
                 </div>
             )}
-
 
             <div className="mt-5">
                 <div>
@@ -201,7 +194,7 @@ const TwoFactorAuthenticationForm = () => {
                             onConfirmed={enableTwoFactorAuthentication}
                             renderButton={(onClick) => (
                                 <PrimaryButton
-                                    className={(enabling ? ' opacity-25' : '')}
+                                    className={enabling ? ' opacity-25' : ''}
                                     disabled={enabling}
                                     onClick={onClick}
                                 >
@@ -217,7 +210,7 @@ const TwoFactorAuthenticationForm = () => {
                                 renderButton={(onClick) => (
                                     <PrimaryButton
                                         type="button"
-                                        className={"me-3" + (enabling ? ' opacity-25' : '')}
+                                        className={'me-3' + (enabling ? ' opacity-25' : '')}
                                         disabled={enabling}
                                         onClick={onClick}
                                     >
@@ -229,11 +222,7 @@ const TwoFactorAuthenticationForm = () => {
                                 onConfirmed={regenerateRecoveryCodes}
                                 show={recoveryCodes.length > 0 && !confirming}
                                 renderButton={(onClick) => (
-                                    <SecondaryButton
-                                        type="button"
-                                        className="me-3"
-                                        onClick={onClick}
-                                    >
+                                    <SecondaryButton type="button" className="me-3" onClick={onClick}>
                                         Regenerate Recovery Codes
                                     </SecondaryButton>
                                 )}
@@ -242,11 +231,7 @@ const TwoFactorAuthenticationForm = () => {
                                 onConfirmed={fetchRecoveryCodes}
                                 show={recoveryCodes.length === 0 && !confirming}
                                 renderButton={(onClick) => (
-                                    <SecondaryButton
-                                        type="button"
-                                        className="me-3"
-                                        onClick={onClick}
-                                    >
+                                    <SecondaryButton type="button" className="me-3" onClick={onClick}>
                                         Confirm
                                     </SecondaryButton>
                                 )}
@@ -257,7 +242,7 @@ const TwoFactorAuthenticationForm = () => {
                                 renderButton={(onClick) => (
                                     <SecondaryButton
                                         type="button"
-                                        className={(enabling ? ' opacity-25' : '')}
+                                        className={enabling ? ' opacity-25' : ''}
                                         disabled={disabling}
                                         onClick={onClick}
                                     >
@@ -271,7 +256,7 @@ const TwoFactorAuthenticationForm = () => {
                                 renderButton={(onClick) => (
                                     <DangerButton
                                         type="button"
-                                        className={(enabling ? ' opacity-25' : '')}
+                                        className={enabling ? ' opacity-25' : ''}
                                         disabled={disabling}
                                         onClick={onClick}
                                     >

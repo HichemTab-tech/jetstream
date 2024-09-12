@@ -7,19 +7,19 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const Login = ({ canResetPassword, status }) => {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',
-        remember: false
+        remember: false,
     });
 
     const submit = (e) => {
         e.preventDefault();
         post(route('login'), {
-            onFinish: () => reset('password')
+            onFinish: () => reset('password'),
         });
     };
 
@@ -28,15 +28,8 @@ const Login = ({ canResetPassword, status }) => {
             <Helmet>
                 <title>Log in</title>
             </Helmet>
-            <AuthenticationCard
-            logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
-                {status && (
-                    <div className="mb-4 font-medium text-sm text-green-600">
-                        {status}
-                    </div>
-                )}
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
+                {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
                 <form onSubmit={submit}>
                     <div>
@@ -81,12 +74,19 @@ const Login = ({ canResetPassword, status }) => {
 
                     <div className="flex items-center justify-end mt-4">
                         {canResetPassword && (
-                            <Link href={route('password.request')} className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <Link
+                                href={route('password.request')}
+                                className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
                                 Forgot your password?
                             </Link>
                         )}
 
-                        <PrimaryButton className="ms-4" disabled={processing} style={{ opacity: processing ? 0.25 : 1 }}>
+                        <PrimaryButton
+                            className="ms-4"
+                            disabled={processing}
+                            style={{ opacity: processing ? 0.25 : 1 }}
+                        >
                             Log in
                         </PrimaryButton>
                     </div>

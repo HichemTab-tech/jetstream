@@ -7,7 +7,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const Register = ({ hasTermsAndPrivacyPolicyFeature }) => {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -32,10 +32,7 @@ const Register = ({ hasTermsAndPrivacyPolicyFeature }) => {
             <Helmet>
                 <title>Register</title>
             </Helmet>
-            <AuthenticationCard
-                logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
                 <form onSubmit={submit}>
                     <div>
                         <InputLabel value="Name" />
@@ -104,7 +101,14 @@ const Register = ({ hasTermsAndPrivacyPolicyFeature }) => {
                                 required
                             />
                             <label htmlFor="terms" className="ml-2">
-                                I agree to the <Link href={route('terms.show')} className="underline">Terms of Service</Link> and <Link href={route('policy.show')} className="underline">Privacy Policy</Link>
+                                I agree to the{' '}
+                                <Link href={route('terms.show')} className="underline">
+                                    Terms of Service
+                                </Link>{' '}
+                                and{' '}
+                                <Link href={route('policy.show')} className="underline">
+                                    Privacy Policy
+                                </Link>
                             </label>
                             <InputError message={errors.terms} />
                         </div>
@@ -115,7 +119,11 @@ const Register = ({ hasTermsAndPrivacyPolicyFeature }) => {
                             Already registered?
                         </Link>
 
-                        <PrimaryButton className="ml-4" disabled={processing} style={{ opacity: processing ? 0.25 : 1 }}>
+                        <PrimaryButton
+                            className="ml-4"
+                            disabled={processing}
+                            style={{ opacity: processing ? 0.25 : 1 }}
+                        >
                             Register
                         </PrimaryButton>
                     </div>

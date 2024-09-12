@@ -1,7 +1,7 @@
 // noinspection JSCheckFunctionSignatures,JSUnresolvedReference
 
 import React, { useRef, useState } from 'react';
-import {useForm, router, Link} from '@inertiajs/react';
+import { useForm, router, Link } from '@inertiajs/react';
 import ActionMessage from '@/Components/ActionMessage';
 import FormSection from '@/Components/FormSection';
 import InputError from '@/Components/InputError';
@@ -11,14 +11,13 @@ import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
 
 const UpdateProfileInformationForm = ({ user, jetstream }) => {
-
-    const [verificationLinkSent, setVerificationLinkSent] = useState(false)
+    const [verificationLinkSent, setVerificationLinkSent] = useState(false);
 
     const { data, setData, post, processing, recentlySuccessful, errors, clearErrors } = useForm({
         _method: 'PUT',
         name: user.name,
         email: user.email,
-        photo: null
+        photo: null,
     });
 
     const [photoPreview, setPhotoPreview] = useState(null);
@@ -34,7 +33,7 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
             onSuccess: () => {
                 clearPhotoFileInput();
                 clearErrors();
-            }
+            },
         });
     };
 
@@ -65,13 +64,16 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
             onSuccess: () => {
                 setPhotoPreview(null);
                 clearPhotoFileInput();
-            }
+            },
         });
     };
 
     return (
-        <FormSection onSubmit={updateProfileInformation} title="Profile Information"
-                     description="Update your account's profile information and email address.">
+        <FormSection
+            onSubmit={updateProfileInformation}
+            title="Profile Information"
+            description="Update your account's profile information and email address."
+        >
             <FormSection.Slot slot="form">
                 {jetstream.managesProfilePhotos && (
                     <div className="col-span-6 sm:col-span-4">
@@ -82,14 +84,20 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
                             className="hidden"
                             onChange={updatePhotoPreview}
                         />
-                        <InputLabel value="Photo"/>
+                        <InputLabel value="Photo" />
                         <div className="mt-2">
                             {photoPreview ? (
-                                <img src={/** @type string */photoPreview} alt="Profile Preview"
-                                     className="rounded-full h-20 w-20 object-cover"/>
+                                <img
+                                    src={/** @type string */ photoPreview}
+                                    alt="Profile Preview"
+                                    className="rounded-full h-20 w-20 object-cover"
+                                />
                             ) : (
-                                <img src={user.profile_photo_url} alt={user.name}
-                                     className="rounded-full h-20 w-20 object-cover"/>
+                                <img
+                                    src={user.profile_photo_url}
+                                    alt={user.name}
+                                    className="rounded-full h-20 w-20 object-cover"
+                                />
                             )}
                         </div>
                         <SecondaryButton onClick={selectNewPhoto} className="mt-2 me-2">
@@ -100,12 +108,12 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
                                 Remove Photo
                             </SecondaryButton>
                         )}
-                        <InputError message={errors.photo}/>
+                        <InputError message={errors.photo} />
                     </div>
                 )}
 
                 <div className="col-span-6 sm:col-span-4">
-                    <InputLabel htmlFor="name" value="Name"/>
+                    <InputLabel htmlFor="name" value="Name" />
                     <TextInput
                         id="name"
                         value={data.name}
@@ -115,12 +123,11 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
                         required
                         autoComplete="name"
                     />
-                    <InputError message={errors.name}/>
+                    <InputError message={errors.name} />
                 </div>
 
-
                 <div className="col-span-6 sm:col-span-4">
-                    <InputLabel htmlFor="email" value="Email"/>
+                    <InputLabel htmlFor="email" value="Email" />
                     <TextInput
                         id="email"
                         value={data.email}
@@ -130,13 +137,12 @@ const UpdateProfileInformationForm = ({ user, jetstream }) => {
                         required
                         autoComplete="username"
                     />
-                    <InputError message={errors.email}/>
+                    <InputError message={errors.email} />
 
                     {jetstream.hasEmailVerification && user.email_verified_at === null && (
                         <div>
                             <p className="text-sm mt-2">
                                 Your email address is unverified.
-
                                 <Link
                                     href={route('verification.send')}
                                     method="post"

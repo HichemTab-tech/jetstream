@@ -55,9 +55,7 @@ const Banner = () => {
                                 </svg>
                             )}
                         </span>
-                        <p className="ms-3 font-medium text-sm text-white truncate">
-                            {message}
-                        </p>
+                        <p className="ms-3 font-medium text-sm text-white truncate">{message}</p>
                     </div>
                     <div className="shrink-0 sm:ms-3">
                         <button
@@ -78,11 +76,7 @@ const Banner = () => {
                                 strokeWidth="1.5"
                                 stroke="currentColor"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>

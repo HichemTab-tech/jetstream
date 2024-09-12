@@ -6,7 +6,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const TwoFactorChallenge = () => {
     const [recovery, setRecovery] = useState(false);
@@ -41,15 +41,11 @@ const TwoFactorChallenge = () => {
             <Helmet>
                 <title>Two-factor Confirmation</title>
             </Helmet>
-            <AuthenticationCard
-                logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
                 <div className="mb-4 text-sm text-gray-600">
                     {!recovery
-                        ? "Please confirm access to your account by entering the authentication code provided by your authenticator application."
-                        : "Please confirm access to your account by entering one of your emergency recovery codes."
-                    }
+                        ? 'Please confirm access to your account by entering the authentication code provided by your authenticator application.'
+                        : 'Please confirm access to your account by entering one of your emergency recovery codes.'}
                 </div>
 
                 <form onSubmit={submit}>
@@ -86,11 +82,19 @@ const TwoFactorChallenge = () => {
                     )}
 
                     <div className="flex items-center justify-end mt-4">
-                        <button type="button" className="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer" onClick={toggleRecovery}>
-                            {recovery ? "Use an authentication code" : "Use a recovery code"}
+                        <button
+                            type="button"
+                            className="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
+                            onClick={toggleRecovery}
+                        >
+                            {recovery ? 'Use an authentication code' : 'Use a recovery code'}
                         </button>
 
-                        <PrimaryButton className="ml-4" disabled={processing} style={{ opacity: processing ? 0.25 : 1 }}>
+                        <PrimaryButton
+                            className="ml-4"
+                            disabled={processing}
+                            style={{ opacity: processing ? 0.25 : 1 }}
+                        >
                             Log in
                         </PrimaryButton>
                     </div>

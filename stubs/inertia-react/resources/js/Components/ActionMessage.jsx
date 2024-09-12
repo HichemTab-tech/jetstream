@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 export default function ActionMessage({ on, children, className = '' }) {
@@ -16,7 +16,7 @@ export default function ActionMessage({ on, children, className = '' }) {
                 unmountOnExit
                 nodeRef={ref}
             >
-                <div className={"text-sm text-gray-600" + (className === '' ? '' : ' ' + className)} ref={ref}>
+                <div className={'text-sm text-gray-600' + (className === '' ? '' : ' ' + className)} ref={ref}>
                     {children}
                 </div>
             </CSSTransition>

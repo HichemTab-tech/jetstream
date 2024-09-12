@@ -13,7 +13,14 @@ import Slot from '@/Components/Slot.jsx';
 const DeleteUserForm = () => {
     const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
     const passwordInputRef = useRef(null);
-    const { data, setData, processing, errors, reset, delete: destroy } = useForm({
+    const {
+        data,
+        setData,
+        processing,
+        errors,
+        reset,
+        delete: destroy,
+    } = useForm({
         password: '',
     });
 
@@ -43,21 +50,21 @@ const DeleteUserForm = () => {
     return (
         <ActionSection title="Delete Account" description="Permanently delete your account.">
             <div className="max-w-xl text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
+                your account, please download any data or information that you wish to retain.
             </div>
 
             <div className="mt-5">
-                <DangerButton onClick={confirmUserDeletion}>
-                    Delete Account
-                </DangerButton>
+                <DangerButton onClick={confirmUserDeletion}>Delete Account</DangerButton>
             </div>
 
             {/* Delete Account Confirmation Modal */}
             <DialogModal show={confirmingUserDeletion} onRequestClose={closeModal}>
                 <Slot slot="title">Delete Account</Slot>
                 <Slot slot="content">
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
-
+                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and
+                    data will be permanently deleted. Please enter your password to confirm you would like to
+                    permanently delete your account.
                     <div className="mt-4">
                         <TextInput
                             ref={passwordInputRef}
@@ -77,9 +84,7 @@ const DeleteUserForm = () => {
                 </Slot>
 
                 <Slot slot="footer">
-                    <SecondaryButton onClick={closeModal}>
-                        Cancel
-                    </SecondaryButton>
+                    <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
 
                     <DangerButton
                         className="ml-3"

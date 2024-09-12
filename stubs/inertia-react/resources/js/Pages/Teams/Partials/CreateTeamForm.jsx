@@ -19,17 +19,23 @@ const CreateTeamForm = () => {
     };
 
     return (
-        <FormSection onSubmit={createTeam} title="Team Details" description="Create a new team to collaborate with others on projects.">
+        <FormSection
+            onSubmit={createTeam}
+            title="Team Details"
+            description="Create a new team to collaborate with others on projects."
+        >
             <FormSection.Slot slot="form">
                 <div className="col-span-6">
                     <InputLabel>Team Owner</InputLabel>
                     <div className="flex items-center mt-2">
-                        <img className="object-cover w-12 h-12 rounded-full" src={auth.user.profile_photo_url} alt={auth.user.name} />
+                        <img
+                            className="object-cover w-12 h-12 rounded-full"
+                            src={auth.user.profile_photo_url}
+                            alt={auth.user.name}
+                        />
                         <div className="ml-4 leading-tight">
                             <div className="text-gray-900">{auth.user.name}</div>
-                            <div className="text-sm text-gray-700">
-                                {auth.user.email}
-                            </div>
+                            <div className="text-sm text-gray-700">{auth.user.email}</div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +45,7 @@ const CreateTeamForm = () => {
                     <TextInput
                         id="name"
                         value={data.name}
-                        onChange={e => setData('name', e.target.value)}
+                        onChange={(e) => setData('name', e.target.value)}
                         type="text"
                         className="block w-full mt-1"
                         autoFocus
@@ -49,9 +55,7 @@ const CreateTeamForm = () => {
             </FormSection.Slot>
 
             <FormSection.Slot slot="actions">
-                <PrimaryButton disabled={processing}>
-                    Create
-                </PrimaryButton>
+                <PrimaryButton disabled={processing}>Create</PrimaryButton>
             </FormSection.Slot>
         </FormSection>
     );

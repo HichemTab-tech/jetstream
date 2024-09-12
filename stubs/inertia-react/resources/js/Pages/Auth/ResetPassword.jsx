@@ -6,7 +6,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const ResetPassword = ({ email, token }) => {
     const { data, setData, post, processing, errors } = useForm({
@@ -33,10 +33,7 @@ const ResetPassword = ({ email, token }) => {
             <Helmet>
                 <title>Reset Password</title>
             </Helmet>
-            <AuthenticationCard
-                logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
                 <form onSubmit={submit}>
                     <div>
                         <InputLabel value="Email" />

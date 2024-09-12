@@ -6,7 +6,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const ForgotPassword = ({ status }) => {
     const { data, setData, post, processing, errors } = useForm({
@@ -23,12 +23,10 @@ const ForgotPassword = ({ status }) => {
             <Helmet>
                 <title>Forgot Password</title>
             </Helmet>
-            <AuthenticationCard
-                logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
                 <div className="mb-4 text-sm text-gray-600">
-                    Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+                    Forgot your password? No problem. Just let us know your email address and we will email you a
+                    password reset link that will allow you to choose a new one.
                 </div>
 
                 {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}

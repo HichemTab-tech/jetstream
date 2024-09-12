@@ -6,19 +6,18 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import {Helmet} from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 const ConfirmPassword = () => {
     const { data, setData, post, processing, errors, reset } = useForm({
         password: '',
     });
 
-
     const confirmingPassword = useRef(false);
     const passwordInputRef = useRef(null);
 
     const startConfirmingPassword = () => {
-        axios.get(route('password.confirmation')).then((response) =>  {
+        axios.get(route('password.confirmation')).then((response) => {
             if (response.data.confirmed) {
                 //emit('confirmed');
             } else {
@@ -44,10 +43,7 @@ const ConfirmPassword = () => {
             <Helmet>
                 <title>Secure Area</title>
             </Helmet>
-            <AuthenticationCard
-                logo={<AuthenticationCardLogo slot="logo" />}
-            >
-
+            <AuthenticationCard logo={<AuthenticationCardLogo slot="logo" />}>
                 <div className="mb-4 text-sm text-gray-600">
                     This is a secure area of the application. Please confirm your password before continuing.
                 </div>
@@ -70,7 +66,11 @@ const ConfirmPassword = () => {
                     </div>
 
                     <div className="flex justify-end mt-4">
-                        <PrimaryButton className="ml-4" disabled={processing} style={{ opacity: processing ? 0.25 : 1 }}>
+                        <PrimaryButton
+                            className="ml-4"
+                            disabled={processing}
+                            style={{ opacity: processing ? 0.25 : 1 }}
+                        >
                             Confirm
                         </PrimaryButton>
                     </div>

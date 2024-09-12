@@ -534,7 +534,7 @@ EOF;
                 'react-dom' => '^18.2.0',
                 'react-helmet' => '^6.1.0',
                 'react-transition-group' => '^4.4.5',
-                'ziggy-js' => '^1.0.5'
+                'ziggy-js' => '^1.0.5',
             ] + $packages;
         });
 
@@ -617,9 +617,9 @@ EOF;
         // Assets...
         copy(__DIR__.'/../../stubs/resources/css/app.css', resource_path('css/app.css'));
         if ($this->option('ssr')) {
-            copy(__DIR__ . '/../../stubs/inertia-react/resources/js/app-ssr.jsx', resource_path('js/app.jsx'));
+            copy(__DIR__.'/../../stubs/inertia-react/resources/js/app-ssr.jsx', resource_path('js/app.jsx'));
         } else {
-            copy(__DIR__ . '/../../stubs/inertia-react/resources/js/app.jsx', resource_path('js/app.jsx'));
+            copy(__DIR__.'/../../stubs/inertia-react/resources/js/app.jsx', resource_path('js/app.jsx'));
         }
 
         // Tests...

@@ -37,10 +37,14 @@ const UpdatePasswordForm = () => {
     };
 
     return (
-        <FormSection onSubmit={updatePassword} title="Update Password" description="Ensure your account is using a long, random password to stay secure.">
+        <FormSection
+            onSubmit={updatePassword}
+            title="Update Password"
+            description="Ensure your account is using a long, random password to stay secure."
+        >
             <FormSection.Slot slot="form">
                 <div className="col-span-6 sm:col-span-4">
-                    <InputLabel htmlFor="current_password" value="Current Password"/>
+                    <InputLabel htmlFor="current_password" value="Current Password" />
                     <TextInput
                         id="current_password"
                         ref={currentPasswordInput}
@@ -50,11 +54,11 @@ const UpdatePasswordForm = () => {
                         className="mt-1 block w-full"
                         autoComplete="current-password"
                     />
-                    <InputError message={errors.current_password}/>
+                    <InputError message={errors.current_password} />
                 </div>
 
                 <div className="col-span-6 sm:col-span-4">
-                    <InputLabel htmlFor="password" value="New Password"/>
+                    <InputLabel htmlFor="password" value="New Password" />
                     <TextInput
                         id="password"
                         ref={passwordInput}
@@ -64,11 +68,11 @@ const UpdatePasswordForm = () => {
                         className="mt-1 block w-full"
                         autoComplete="new-password"
                     />
-                    <InputError message={errors.password}/>
+                    <InputError message={errors.password} />
                 </div>
 
                 <div className="col-span-6 sm:col-span-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password"/>
+                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
                     <TextInput
                         id="password_confirmation"
                         value={data.password_confirmation}
@@ -77,7 +81,7 @@ const UpdatePasswordForm = () => {
                         className="mt-1 block w-full"
                         autoComplete="new-password"
                     />
-                    <InputError message={errors.password_confirmation}/>
+                    <InputError message={errors.password_confirmation} />
                 </div>
             </FormSection.Slot>
 

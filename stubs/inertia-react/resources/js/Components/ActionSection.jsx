@@ -3,7 +3,7 @@ import SectionTitle from './SectionTitle';
 
 function ActionSection({ title, description, children, className = '' }) {
     return (
-        <div className={"md:grid md:grid-cols-3 md:gap-6"+(className === '' ? '' : ' ' + className)}>
+        <div className={'md:grid md:grid-cols-3 md:gap-6' + (className === '' ? '' : ' ' + className)}>
             <SectionTitle>
                 <slot slot="title">{title}</slot>
                 <slot slot="description">{description}</slot>

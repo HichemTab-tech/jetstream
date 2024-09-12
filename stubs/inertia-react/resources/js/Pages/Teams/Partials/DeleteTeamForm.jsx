@@ -19,39 +19,28 @@ const DeleteTeamForm = ({ team }) => {
     };
 
     return (
-        <ActionSection
-            title="Delete Team"
-            description="Permanently delete this team."
-        >
+        <ActionSection title="Delete Team" description="Permanently delete this team.">
             <div className="max-w-xl text-sm text-gray-600">
-                Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.
+                Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this
+                team, please download any data or information regarding this team that you wish to retain.
             </div>
 
             <div className="mt-5">
-                <DangerButton onClick={confirmTeamDeletion}>
-                    Delete Team
-                </DangerButton>
+                <DangerButton onClick={confirmTeamDeletion}>Delete Team</DangerButton>
             </div>
 
             <ConfirmationModal show={confirmingTeamDeletion} onClose={() => setConfirmingTeamDeletion(false)}>
-                <Slot slot="title">
-                    Delete Team
-                </Slot>
+                <Slot slot="title">Delete Team</Slot>
 
                 <Slot slot="content">
-                    Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.
+                    Are you sure you want to delete this team? Once a team is deleted, all of its resources and data
+                    will be permanently deleted.
                 </Slot>
 
                 <Slot slot="footer">
-                    <SecondaryButton onClick={() => setConfirmingTeamDeletion(false)}>
-                        Cancel
-                    </SecondaryButton>
+                    <SecondaryButton onClick={() => setConfirmingTeamDeletion(false)}>Cancel</SecondaryButton>
 
-                    <DangerButton
-                        className="ml-3"
-                        disabled={processing}
-                        onClick={deleteTeam}
-                    >
+                    <DangerButton className="ml-3" disabled={processing} onClick={deleteTeam}>
                         Delete Team
                     </DangerButton>
                 </Slot>

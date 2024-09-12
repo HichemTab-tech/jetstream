@@ -9,14 +9,9 @@ export default forwardRef(function TextInput({ modelValue, autoFocus, className 
         }
     }, [autoFocus]);
 
-    const inputClassName = `border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm ${className || ''}`.trim();
+    const inputClassName = `border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm ${
+        className || ''
+    }`.trim();
 
-    return (
-        <input
-            ref={inputRef}
-            className={inputClassName}
-            value={modelValue}
-            {...props}
-        />
-    );
+    return <input ref={inputRef} className={inputClassName} value={modelValue} {...props} />;
 });

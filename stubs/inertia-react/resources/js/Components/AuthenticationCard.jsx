@@ -12,6 +12,4 @@ function AuthenticationCard({ logo, children }) {
     );
 }
 
-
-
 export default AuthenticationCard;

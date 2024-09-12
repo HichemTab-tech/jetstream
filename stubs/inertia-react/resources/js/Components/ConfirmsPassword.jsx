@@ -23,7 +23,7 @@ const ConfirmsPassword = ({
     const passwordInputRef = useRef(null);
 
     const startConfirmingPassword = () => {
-        axios.get(route('password.confirmation')).then((response) =>  {
+        axios.get(route('password.confirmation')).then((response) => {
             if (response.data.confirmed) {
                 onConfirmed();
             } else {
@@ -43,7 +43,7 @@ const ConfirmsPassword = ({
                 closeModal();
                 onConfirmed();
             })
-            .catch(error => {
+            .catch((error) => {
                 setForm((prev) => ({
                     ...prev,
                     processing: false,
