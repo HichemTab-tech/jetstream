@@ -4,13 +4,14 @@ import AppLayout from '@/Layouts/AppLayout';
 
 const APIIndex = ({ tokens, availablePermissions, defaultPermissions }) => {
     return (
-        <AppLayout title="API Tokens">
-            <div slot="header">
+        <AppLayout
+            title="API Tokens"
+            header={(
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     API Tokens
                 </h2>
-            </div>
-
+            )}
+        >
             <div>
                 <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                     <ApiTokenManager
