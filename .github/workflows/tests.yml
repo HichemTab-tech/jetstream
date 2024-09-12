@@ -44,7 +44,6 @@ jobs:
 
   stub-tests:
     runs-on: ubuntu-22.04
-    timeout-minutes: 2 # Set to 2 minutes or an appropriate value
 
     strategy:
       fail-fast: true
